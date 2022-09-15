@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import ElementCreator from './ElementCreator/ElementCreator';
+import DisplayAndRemove from './DisplayAndRemove';
 
 
 const App = () => {
@@ -16,8 +17,7 @@ const App = () => {
     <div className='main-block'>
         <h1>My TaskList App!!!</h1>
         <ElementCreator tasksList={tasksList} setTasksList={setTasksList}/>
-        {console.log(tasksList)}
-        {tasksList[0].name}
+        <DisplayAndRemove tasksList={tasksList} setTasksList={setTasksList} onDelete={handleDelete}/>
     </div>
 
   )
