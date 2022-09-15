@@ -3,11 +3,10 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 
-const ElementCreator = () => {
+const ElementCreator = ({tasksList, setTasksList}) => {
 
 
     const [form, setForm] = useState({
-        uuidv4: null,
         name: ''
     });
 
@@ -18,12 +17,17 @@ const ElementCreator = () => {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setTasksList([...tasksList, {id: uuidv4(), name: 'Hola'}])
+    }
+
   return (
     <div className='task-creator'>
         <h3>Add a task</h3>
-        <form className='task-form'>
-            <input placeholder='Introduce a Task to do please' value={form.name} ></input>
-            {form.name === '' ? <button className='' disabled>Add</button> : <button className='btn notDisabled' type='submit'>Add</button> }
+        <form className='task-form' onSubmit={handleSubmit}>
+            <input placeholder='Introduce a Task to do please' name='name' value={form.name} onChange={handleInput}></input>
+            {form.name === '' ? <button className='' type='submit' disabled>Add</button> : <button className='btn notDisabled' type='submit'>Add</button> }
         </form>
     </div>
   )

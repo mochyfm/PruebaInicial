@@ -4,10 +4,8 @@ import ElementCreator from './ElementCreator/ElementCreator';
 
 
 const App = () => {
-
-    const defaultTasks = [{}];
     
-    const [tasksList, setTasksList] = useState(defaultTasks);
+    const [tasksList, setTasksList] = useState([{}]);
 
     const handleDelete = (id) => {
         setTasksList(tasksList.filter((tasksList) => tasksList.id !== id))
@@ -17,7 +15,9 @@ const App = () => {
 
     <div className='main-block'>
         <h1>My TaskList App!!!</h1>
-        <ElementCreator setTasksList={setTasksList}/>
+        <ElementCreator tasksList={tasksList} setTasksList={setTasksList}/>
+        {console.log(tasksList)}
+        {tasksList[0].name}
     </div>
 
   )
