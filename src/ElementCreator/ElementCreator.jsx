@@ -19,7 +19,7 @@ const ElementCreator = ({tasksList, setTasksList}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTasksList([...tasksList, {id: uuidv4(), name: 'Hola'}])
+        setTasksList([...tasksList, {id: uuidv4(), name: form.name}])
     }
 
   return (
